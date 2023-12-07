@@ -370,7 +370,7 @@ class ShopCarSerializer(serializers.ModelSerializer):
 
     def validate_username(self, attr):
         if not attr:
-            raise ValidationError('<a href="/login" style="text-decoration:none">请先登录</a>')
+            raise ValidationError('<a href="/login">请先登录</a>')
         return attr
 
     def validate(self, attrs):
@@ -406,7 +406,7 @@ class UpOrDownSerializer(serializers.ModelSerializer):
 
     def validate_username(self, attr):
         if not attr:
-            raise ValidationError('<a href="/login" style="text-decoration:none">请先登录</a>')
+            raise ValidationError('<a href="/login">请先登录</a>')
         return attr
 
     def validate(self, attrs):
@@ -452,7 +452,7 @@ class CommentSerializer(serializers.ModelSerializer):
             attrs.pop('username')
             attrs['user'] = user
             return attrs
-        raise ValidationError({'comment_error': '<a href="/login" style="text-decoration:none">请先登录</a>'})
+        raise ValidationError({'comment_error': '<a href="/login">请先登录</a>'})
 
     def create(self, validated_data):
         goods_id = validated_data.get('goods_id')
